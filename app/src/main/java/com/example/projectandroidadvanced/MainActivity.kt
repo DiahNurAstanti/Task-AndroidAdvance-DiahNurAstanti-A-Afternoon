@@ -1,6 +1,7 @@
 package com.example.projectandroidadvanced
 
 import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -62,8 +63,10 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.share -> {
-                Toast.makeText(this, "Aplikasi telah dibagikan", Toast.LENGTH_SHORT).show()
+            R.id.alarm -> {
+                Toast.makeText(this, "Halaman alarm manager", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AlarmActivity::class.java)
+                startActivity(intent)
             }
             R.id.menuAbout -> {
                 Toast.makeText(this, "menu about di-klik", Toast.LENGTH_SHORT).show()
