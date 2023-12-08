@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projectandroidadvanced.databinding.ListArtikelBinding
 
 
-class ArtikelAdapter(private val context: Context?, private val list: List<ArtikelModel>) :
+class ArtikelAdapter(private val context: Context?, private val list: MutableList<CommentItem>) :
     RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ListArtikelBinding) : RecyclerView.ViewHolder(binding.root)
@@ -22,7 +22,7 @@ class ArtikelAdapter(private val context: Context?, private val list: List<Artik
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             with(list[position]) {
-                binding.judulArtikel.text = this.judul
+                binding.judulArtikel.text = this.email
             }
         }
     }
@@ -30,5 +30,10 @@ class ArtikelAdapter(private val context: Context?, private val list: List<Artik
     override fun getItemCount(): Int {
         return list.size
     }
+    fun setData(data: Comment) {
+        list.clear()
+        list.addAll(data)
+        notifyDataSetChanged()
+        }
 
 }
